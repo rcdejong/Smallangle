@@ -1,6 +1,6 @@
 import sys
 
-args = sys.argv
+args = sys.argv, 2, 4, 6
 print(args)
 
 if args[1] == "test":
