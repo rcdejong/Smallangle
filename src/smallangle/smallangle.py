@@ -13,12 +13,14 @@ def trigonometric_functions():
     pass
 
 @trigonometric_functions.command() # To be able to call the functions via the command line.
-# @click.argument("function sine")
+# @click.argument("function_name")
 @click.option(
     "-n",
     "--number",
     default=9,
-    ) # Options for the arguments .
+    # help="Nr of steps beyween 0 and 2*pi to calculate the function",
+    # show_default=True
+    ) # Options for the arguments.
 
 def sin(number):
     """Print a list of the sine(x) function for x from 0 to 2*pi.
