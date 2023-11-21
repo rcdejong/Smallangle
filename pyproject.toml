@@ -10,12 +10,15 @@ packages = [{include = "smallangle", from = "src"}]
 python = "^3.9"
 pandas = "^2.1.3"
 numpy = "^1.26.2"
+click = "^8.1.7"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-run_sin = "smallangle.smallangle:main"
+smallangle = "smallangle.smallangle:main_function"
+sin = "smallangle.smallangle:sin"
+# smallangle = "smallangle.smallangle" # THIS DOES NOT WORK
 # test_print = "pythondaq.view:testprint"
 # count = "pythondaq.count_count:main"

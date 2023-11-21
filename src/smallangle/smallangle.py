@@ -7,79 +7,86 @@ import numpy as np
 from numpy import pi
 import pandas as pd
 
-# Defines the group for the subcommands sine(), tan() and cosine().
-@click.group()
-def trigonometric_functions(): 
-    """smallangle.py prints a list of trigonometric functions for (not so small...) angles from 0 to 2*pi.
-    """
-    pass
+def main_function():
 
-@trigonometric_functions.command()
-@click.option(
-    "-n",
-    "--number",
-    default=9,
-    help="Nr of steps beyween 0 and 2*pi to calculate the function",
-    show_default=True
-    )
+    # Defines the group for the subcommands sine(), tan() and cosine().
+    @click.group()
+    def trigonometric_functions(): 
+        """smallangle.py prints a list of trigonometric functions for
+        (not so small...) angles from 0 to 2*pi.
+        """
+        pass
 
-def cos(number):
-    """Print a list of the cosine function values for angles from 0 to 2*pi. \f
+    @trigonometric_functions.command()
+    @click.option(
+        "-n",
+        "--number",
+        default=9,
+        help="Nr of steps beyween 0 and 2*pi to calculate the function",
+        show_default=True
+        )
 
-    Args:
-        number (int): number of steps in the list from 0 to 2*pi.
+    def cos(number):
+        """Print a list of the cosine function values for angles from 0 to 2*pi. \f
 
-    Returns:
-        printed list: containing the function arguments (angles) and the function value.
-    """
-    x = np.linspace(0, 2 * pi, int(number))
-    df = pd.DataFrame({"x": x, "cos (x)": np.cos(x)})
-    print(df)
+        Args:
+            number (int): number of steps in the list from 0 to 2*pi.
 
-@trigonometric_functions.command()
-@click.option(
-    "-n",
-    "--number",
-    default=9,
-    help="Nr of steps beyween 0 and 2*pi to calculate the function",
-    show_default=True
-    )
+        Returns:
+            printed list: containing the function arguments (angles) and the function value.
+        """
+        x = np.linspace(0, 2 * pi, int(number))
+        df = pd.DataFrame({"x": x, "cos (x)": np.cos(x)})
+        print(df)
 
-def sin(number):
-    """Print a list of the sine function values for angles from 0 to 2*pi. \f
+    @trigonometric_functions.command()
+    @click.option(
+        "-n",
+        "--number",
+        default=9,
+        help="Nr of steps beyween 0 and 2*pi to calculate the function",
+        show_default=True
+        )
 
-    Args:
-        number (int): number of steps in the list from 0 to 2*pi.
+    def sin(number):
+        """Print a list of the sine function values for angles from 0 to 2*pi. \f
 
-    Returns:
-        printed list: containing the function arguments (angles) and the function value.
-    """
-    x = np.linspace(0, 2 * pi, int(number))
-    df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
-    print(df)
+        Args:
+            number (int): number of steps in the list from 0 to 2*pi.
 
-@trigonometric_functions.command()
-@click.option(
-    "-n",
-    "--number",
-    default=9,
-    help="Nr of steps beyween 0 and 2*pi to calculate the function",
-    show_default=True
-    )
+        Returns:
+            printed list: containing the function arguments (angles) and the function value.
+        """
+        x = np.linspace(0, 2 * pi, int(number))
+        df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
+        print(df)
 
-def tan(number):
-    """Print a list of the tangent function values for angles from 0 to 2*pi. \f
+    @trigonometric_functions.command()
+    @click.option(
+        "-n",
+        "--number",
+        default=9,
+        help="Nr of steps beyween 0 and 2*pi to calculate the function",
+        show_default=True
+        )
 
-    Args:
-        number (int): number of steps in the list from 0 to 2*pi.
+    def tan(number):
+        """Print a list of the tangent function values for angles from 0 to 2*pi. \f
 
-    Returns:
-        printed list: containing the function arguments (angles) and the function value.
-    """
-    x = np.linspace(0, 2 * pi, int(number))
-    df = pd.DataFrame({"x": x, "tangent (x)": np.tan(x)})
-    print(df)
+        Args:
+            number (int): number of steps in the list from 0 to 2*pi.
 
-# Calls the dummy function because sine(), tan() or cosine() are called via the command line.
-if __name__ == "__main__":
+        Returns:
+            printed list: containing the function arguments (angles) and the function value.
+        """
+        x = np.linspace(0, 2 * pi, int(number))
+        df = pd.DataFrame({"x": x, "tangent (x)": np.tan(x)})
+        print(df)
+
+    # # THIS WAS OLD, AND DID NOT WORK ('trigonometric_functions() needed to be outside).
+    # # Calls the dummy function because sine(), tan() or cosine() are called via the command line.
+    # print(__name__)
+    # if __name__ == "__main__":    # __name__ = "smallangle.smallangle" which is not "__main__"  !!!!
+    #     trigonometric_functions()
+
     trigonometric_functions()
