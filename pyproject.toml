@@ -17,8 +17,9 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-smallangle = "smallangle.smallangle:main_function"
-sin = "smallangle.smallangle:sin"
+smallangle = "smallangle.smallangle:trigonometric_functions"
+hello = "smallangle.hello:main_function"
+# sin = "smallangle.smallangle:sin"
 # smallangle = "smallangle.smallangle" # THIS DOES NOT WORK
 # test_print = "pythondaq.view:testprint"
 # count = "pythondaq.count_count:main"
